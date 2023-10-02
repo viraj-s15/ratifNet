@@ -16,7 +16,7 @@ def train_model(
     y_train: pd.DataFrame,
     y_test: pd.DataFrame,
     config: ModelNameConfig,
-) -> RegressorMixin:
+):
     try:
         model = None
         if config.model_name == "LinearRegression":

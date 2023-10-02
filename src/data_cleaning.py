@@ -73,8 +73,9 @@ class DataSplitStrategy(DataStrategy):
 
     def handle_data(self, data: pd.DataFrame) -> Union[pd.DataFrame, pd.Series]:
         try:
-            X = data.drop(["review scores"], axis=1)
-            y = data["review scores"]
+            X = data.copy()
+            X = X.drop(["review_score"], axis=1)
+            y = data["review_score"]
             X_train, X_test, y_train, y_test = train_test_split(
                 X, y, test_size=0.25, random_state=1234
             )
