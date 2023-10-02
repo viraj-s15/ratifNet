@@ -1,5 +1,7 @@
 # A Tabnet Pipeline for predicting customer ratings
 
+![image](https://github.com/viraj-s15/zenml-rating-tabnet-pipeline/assets/79002760/eab936df-5b5b-45fd-bdc8-536f438621d5)
+
 ## Table of Contents
 
 - [About](#about)
