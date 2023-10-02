@@ -1,5 +1,6 @@
 import logging
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 from typing import Union
 
 import numpy as np
@@ -63,3 +64,42 @@ class DataPreprocessingStrategy(DataStrategy):
         except Exception as e:
             logging.info("Error occured in data preprocessing")
             raise (e)
+
+
+class DataSplitStrategy(DataStrategy):
+    """
+    Dividing the data into train and sets
+    """
+
+    def handle_data(self, data: pd.DataFrame) -> Union[pd.DataFrame, pd.Series]:
+        try:
+            X = data.drop(["review scores"], axis=1)
+            y = data["review scores"]
+            X_train, X_test, y_train, y_test = train_test_split(
+                X, y, test_size=0.25, random_state=1234
+            )
+            return X_train, X_test, y_train, y_test
+        except Exception as e:
+            logging.info(f"Error occured during data splitting -> {e}")
+            raise e
+
+
+@dataclass
+class DataCleaning:
+    data: pd.DataFrame
+    strategy: DataStrategy
+
+    def handle_data(self) -> Union[pd.DataFrame, pd.Series]:
+        try:
+            return self.strategy.handle_data(self.data)
+        except Exception as e:
+            logging.info(
+                f"An error occured in handling data in the following strategy -> {self.strategy.__str__()}"
+            )
+            raise e
+
+
+if __name__ == "__main__":
+    data = pd.read_csv("../data/olist_customers_dataset.csv")
+    data_cleaning = DataCleaning(data, DataPreprocessingStrategy())
+    data_cleaning.handle_data()
