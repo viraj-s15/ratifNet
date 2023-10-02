@@ -36,3 +36,8 @@ python run_pipelines.py
 
 Once the pipeline has finished running, you can view the pipeline using
 `zenml up`
+
+To view the mlflow stuff, copy the local uri printed in your console and use the following command
+```bash
+mlflow ui --backend-store-uri <paste_uri_here>
+```
