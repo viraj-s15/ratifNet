@@ -24,7 +24,7 @@ MlFlow is being used for tracking the model (training and evaluation)
 
 **DEPLOYMENT TO BE ADDED**
 
-What things you need to install the software and how to install them.
+Start out by clonnig the repo and follow the instructions below
 
 ```bash
 pip install -r requirements.txt
