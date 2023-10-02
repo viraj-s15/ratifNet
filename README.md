@@ -13,6 +13,7 @@ A tabnet pipeline consisiting of:
   - Data Ingestion 
   - Data Cleaning
   - Feature Engineering
+  - Hyperparameter optimisation
   - Model Training
   - Evaluation
 
