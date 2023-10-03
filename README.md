@@ -1,6 +1,12 @@
 # A Tabnet Pipeline for predicting customer ratings
 
-![image](https://github.com/viraj-s15/zenml-rating-tabnet-pipeline/assets/79002760/eab936df-5b5b-45fd-bdc8-536f438621d5)
+The deployment pipeline dag:
+
+![image](https://github.com/viraj-s15/zenml-rating-tabnet-pipeline/assets/79002760/e96b9d48-0415-418f-b4fa-e4048dcebc5b)
+
+The inference pipeline dag:
+
+![image](https://github.com/viraj-s15/zenml-rating-tabnet-pipeline/assets/79002760/6b679231-075e-40cb-bce6-3f236fb1aea8)
 
 ## Table of Contents
 
