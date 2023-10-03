@@ -50,3 +50,13 @@ mlflow ui --backend-store-uri <paste_uri_here>
 The mlflow ui should look like this
 
 ![swappy-20231002_170004](https://github.com/viraj-s15/zenml-rating-tabnet-pipeline/assets/79002760/8a966af8-455a-47c6-8d47-e5cf7794ebd7)
+
+To run the continuous deployment pipeline:
+```bash
+python run_deployment.py --config deploy
+```
+
+To run the inference pipeline:
+```bash
+python run_deployment.py --config predict 
+```
