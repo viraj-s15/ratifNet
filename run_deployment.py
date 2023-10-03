@@ -7,7 +7,10 @@ from zenml.integrations.mlflow.model_deployers.mlflow_model_deployer import (
 )
 from zenml.integrations.mlflow.services.mlflow_deployment import MLFlowDeploymentService
 
-from pipelines.deployment_pipeline import continuous_deployment_pipeline
+from pipelines.deployment_pipeline import (
+    continuous_deployment_pipeline,
+    inference_pipeline,
+)
 
 DEPLOY = "deploy"
 PREDICT = "predict"
@@ -43,8 +46,11 @@ def run_deployment(config: str, min_accuracy: float):
             timeout=60,
             data_path="./data/olist_customers_dataset.csv",
         )
-    # if predict:
-    #     inference_pipeline()
+    if predict:
+        inference_pipeline(
+            pipeline_name="continuous_deployment_pipeline",
+            pipeline_step_name="mlflow_model_deployer_step",
+        )
 
     print(
         "You can run:\n "
